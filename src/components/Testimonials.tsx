@@ -5,41 +5,41 @@ import { Star, Quote } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
-const testimonials = [
+const getTestimonials = (lang: 'pt' | 'en' | 'ar') => [
   {
     name: "Felipe Souza",
-    text: "Excelente atendimento! Fiz o motor do meu Peugeot 206, ficou um brinco, novo de novo. Explicaram cada etapa da manutenção e hoje continuam sendo minha oficina de confiança.",
+    text: lang === 'ar' ? "خدمة ممتازة! قمت بإصلاح محرك سيارتي بيجو 206، أصبح كالجديد تماماً. شرحوا لي كل خطوة واليوم هم ورشتي الموثوقة." : lang === 'en' ? "Excellent service! I had my Peugeot 206 engine fixed, it looks brand new. They explained every step of the maintenance and today they remain my trusted repair shop." : "Excelente atendimento! Fiz o motor do meu Peugeot 206, ficou um brinco, novo de novo. Explicaram cada etapa da manutenção e hoje continuam sendo minha oficina de confiança.",
     rating: 5
   },
   {
     name: "Rafael",
-    text: "Melhor oficina mecânica em São Bernardo do Campo. Especializada em câmbio automático, PowerShift e CVT. Atendimento honesto, diagnóstico preciso e entrega no prazo.",
+    text: lang === 'ar' ? "أفضل ورشة ميكانيكا في ساو برناردو دو كامبو. متخصصون في نواقل الحركة الأوتوماتيكية و PowerShift و CVT. خدمة صادقة وتشخيص دقيق وتسليم في الموعد." : lang === 'en' ? "Best auto repair shop in São Bernardo do Campo. Specialized in automatic transmission, PowerShift and CVT. Honest service, precise diagnosis and on-time delivery." : "Melhor oficina mecânica em São Bernardo do Campo. Especializada em câmbio automático, PowerShift e CVT. Atendimento honesto, diagnóstico preciso e entrega no prazo.",
     rating: 5
   },
   {
     name: "Gustavo Benito",
-    text: "Mostraram todas as peças com problema, explicaram o defeito e enviaram vídeos durante o serviço. Trabalho excelente.",
+    text: lang === 'ar' ? "أظهروا لي جميع الأجزاء المعيبة، وشرحوا الخلل، وأرسلوا لي مقاطع فيديو أثناء الخدمة. عمل ممتاز." : lang === 'en' ? "They showed me all the faulty parts, explained the defect, and sent videos during the service. Excellent work." : "Mostraram todas as peças com problema, explicaram o defeito e enviaram vídeos durante o serviço. Trabalho excelente.",
     rating: 5
   },
   {
     name: "Alexandre Silva",
-    text: "Preço justo, excelente atendimento e serviço de alta qualidade. Ganharam um cliente fiel.",
+    text: lang === 'ar' ? "سعر عادل، خدمة ممتازة وجودة عالية. لقد كسبوا عميلاً وفياً." : lang === 'en' ? "Fair price, excellent service and high quality work. They've earned a loyal customer." : "Preço justo, excelente atendimento e serviço de alta qualidade. Ganharam um cliente fiel.",
     rating: 5
   },
   {
     name: "Omar Awad",
-    text: "Fiz o câmbio automático, consegui parcelar em 12x sem juros e o carro ficou perfeito.",
+    text: lang === 'ar' ? "قمت بإصلاح ناقل الحركة الأوتوماتيكي، وتمكنت من الدفع على 12 قسطاً بدون فوائد، والسيارة الآن مثالية." : lang === 'en' ? "I fixed my automatic transmission, was able to pay in 12 interest-free installments, and the car is perfect." : "Fiz o câmbio automático, consegui parcelar em 12x sem juros e o carro ficou perfeito.",
     rating: 5
   },
   {
     name: "Isabella Ávila",
-    text: "Mesmo fora do horário me ajudaram com guincho e atendimento. Excelente suporte.",
+    text: lang === 'ar' ? "حتى خارج ساعات العمل ساعدوني بونش وخدمة متميزة. دعم ممتاز." : lang === 'en' ? "Even after hours they helped me with a tow truck and great service. Excellent support." : "Mesmo fora do horário me ajudaram com guincho e atendimento. Excelente suporte.",
     rating: 5
   }
 ];
 
 export default function Testimonials() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   return (
     <section id="depoimentos" className="py-24 bg-dark-100 relative overflow-hidden border-t border-white/5">
       {/* Background decoration */}
@@ -62,8 +62,8 @@ export default function Testimonials() {
           </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((item, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {getTestimonials(language as any).map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}

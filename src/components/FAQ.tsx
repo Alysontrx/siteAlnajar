@@ -5,40 +5,40 @@ import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
-const faqs = [
+const getFaqs = (lang: 'pt' | 'en' | 'ar') => [
   {
-    question: "Vocês trabalham com câmbio automático?",
-    answer: "Sim, somos especialistas em diagnóstico, reparo e manutenção preventiva (troca de fluido) de câmbios automáticos de todas as marcas."
+    question: lang === 'ar' ? "هل تعملون مع نواقل الحركة الأوتوماتيكية؟" : lang === 'en' ? "Do you work with automatic transmissions?" : "Vocês trabalham com câmbio automático?",
+    answer: lang === 'ar' ? "نعم، نحن متخصصون في التشخيص والإصلاح والصيانة الوقائية (تغيير السوائل) لنواقل الحركة الأوتوماتيكية من جميع الماركات." : lang === 'en' ? "Yes, we specialize in diagnostics, repair, and preventive maintenance (fluid change) for automatic transmissions of all brands." : "Sim, somos especialistas em diagnóstico, reparo e manutenção preventiva (troca de fluido) de câmbios automáticos de todas as marcas."
   },
   {
-    question: "Vocês fazem PowerShift?",
-    answer: "Com certeza. Temos vasta experiência em diagnóstico e correção dos problemas crônicos dos modelos PowerShift, com peças de qualidade e garantia."
+    question: lang === 'ar' ? "هل تقومون بصيانة PowerShift؟" : lang === 'en' ? "Do you repair PowerShift transmissions?" : "Vocês fazem PowerShift?",
+    answer: lang === 'ar' ? "بالتأكيد. لدينا خبرة واسعة في تشخيص وتصحيح المشاكل المزمنة في نماذج PowerShift، مع قطع غيار عالية الجودة وضمان." : lang === 'en' ? "Absolutely. We have extensive experience in diagnosing and fixing chronic problems in PowerShift models, with quality parts and warranty." : "Com certeza. Temos vasta experiência em diagnóstico e correção dos problemas crônicos dos modelos PowerShift, com peças de qualidade e garantia."
   },
   {
-    question: "Tem garantia?",
-    answer: "Sim, todos os nossos serviços e peças possuem garantia documentada. A transparência e a sua segurança são nossas prioridades."
+    question: lang === 'ar' ? "هل يوجد ضمان؟" : lang === 'en' ? "Is there a warranty?" : "Tem garantia?",
+    answer: lang === 'ar' ? "نعم، جميع خدماتنا وقطع الغيار التي نوفرها مشمولة بضمان موثق. الشفافية وسلامتك هي أولوياتنا." : lang === 'en' ? "Yes, all our services and parts come with a documented warranty. Transparency and your safety are our priorities." : "Sim, todos os nossos serviços e peças possuem garantia documentada. A transparência e a sua segurança são nossas prioridades."
   },
   {
-    question: "Parcelam?",
-    answer: "Sim! Facilitamos o pagamento e parcelamos o seu conserto em até 12x no cartão de crédito."
+    question: lang === 'ar' ? "هل تقبلون التقسيط؟" : lang === 'en' ? "Do you offer installments?" : "Parcelam?",
+    answer: lang === 'ar' ? "نعم! نحن نسهل الدفع ويمكنك تقسيط تكلفة الإصلاح حتى 12 قسطًا على بطاقتك الائتمانية." : lang === 'en' ? "Yes! We make payment easy and offer installments up to 12x on your credit card." : "Sim! Facilitamos o pagamento e parcelamos o seu conserto em até 12x no cartão de crédito."
   },
   {
-    question: "Quanto tempo leva o serviço?",
-    answer: "Depende da complexidade do diagnóstico e reparo. Manutenções preventivas geralmente ficam prontas no mesmo dia. Serviços de câmbio podem levar alguns dias. Sempre informamos o prazo exato no orçamento."
+    question: lang === 'ar' ? "كم من الوقت تستغرق الخدمة؟" : lang === 'en' ? "How long does the service take?" : "Quanto tempo leva o serviço?",
+    answer: lang === 'ar' ? "يعتمد ذلك على تعقيد التشخيص والإصلاح. عادة ما تكتمل الصيانة الوقائية في نفس اليوم. قد تستغرق خدمات ناقل الحركة بضعة أيام. نعلمك دائمًا بالوقت المحدد في عرض السعر." : lang === 'en' ? "It depends on the complexity of the diagnosis and repair. Preventive maintenance is usually completed on the same day. Transmission services may take a few days. We always inform you of the exact timeframe in the estimate." : "Depende da complexidade do diagnóstico e reparo. Manutenções preventivas geralmente ficam prontas no mesmo dia. Serviços de câmbio podem levar alguns dias. Sempre informamos o prazo exato no orçamento."
   },
   {
-    question: "Fazem diagnóstico?",
-    answer: "Sim, utilizamos scanners automotivos de última geração para diagnosticar com precisão a falha antes de trocar qualquer peça."
+    question: lang === 'ar' ? "هل تقومون بإجراء تشخيص للسيارة؟" : lang === 'en' ? "Do you perform computerized diagnostics?" : "Fazem diagnóstico?",
+    answer: lang === 'ar' ? "نعم، نستخدم أحدث أجهزة المسح الآلي لتشخيص العطل بدقة قبل تغيير أي قطعة." : lang === 'en' ? "Yes, we use state-of-the-art automotive scanners to accurately diagnose the fault before changing any parts." : "Sim, utilizamos scanners automotivos de última geração para diagnosticar com precisão a falha antes de trocar qualquer peça."
   },
   {
-    question: "Atendem carros importados?",
-    answer: "Sim, atendemos tanto veículos nacionais quanto veículos importados de padrão premium (BMW, Audi, Mercedes, etc)."
+    question: lang === 'ar' ? "هل تقبلون السيارات المستوردة؟" : lang === 'en' ? "Do you service imported cars?" : "Atendem carros importados?",
+    answer: lang === 'ar' ? "نعم، نحن نخدم كلاً من السيارات الوطنية والسيارات المستوردة الفاخرة (BMW، Audi، Mercedes، إلخ)." : lang === 'en' ? "Yes, we service both domestic vehicles and premium imported vehicles (BMW, Audi, Mercedes, etc)." : "Sim, atendemos tanto veículos nacionais quanto veículos importados de padrão premium (BMW, Audi, Mercedes, etc)."
   }
 ];
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <section className="py-24 bg-dark-100 relative border-t border-white/5">
@@ -58,7 +58,7 @@ export default function FAQ() {
         </div>
 
         <div className="space-y-4">
-          {faqs.map((faq, index) => (
+          {getFaqs(language as any).map((faq, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}

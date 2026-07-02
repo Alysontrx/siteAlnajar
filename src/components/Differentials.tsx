@@ -4,19 +4,19 @@ import { motion } from "framer-motion";
 import { CheckCircle2, Video, ShieldCheck, Wrench, Clock, CreditCard, ThumbsUp, Medal } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
-const differentials = [
-  { icon: <CheckCircle2 />, title: "Diagnóstico preciso" },
-  { icon: <ThumbsUp />, title: "Transparência total" },
-  { icon: <Video />, title: "Vídeos mostrando o serviço" },
-  { icon: <ShieldCheck />, title: "Garantia em peças e serviços" },
-  { icon: <Medal />, title: "Profissionais experientes" },
-  { icon: <Wrench />, title: "Especialistas em câmbio automático" },
-  { icon: <Clock />, title: "Entrega no prazo" },
-  { icon: <CreditCard />, title: "Preço justo e Parcelamento" }
+const getDifferentials = (lang: 'pt' | 'en' | 'ar') => [
+  { icon: <CheckCircle2 />, title: lang === 'ar' ? "تشخيص دقيق" : lang === 'en' ? "Precise Diagnosis" : "Diagnóstico preciso" },
+  { icon: <ThumbsUp />, title: lang === 'ar' ? "شفافية تامة" : lang === 'en' ? "Total Transparency" : "Transparência total" },
+  { icon: <Video />, title: lang === 'ar' ? "فيديوهات توضح الخدمة" : lang === 'en' ? "Videos Showing the Service" : "Vídeos mostrando o serviço" },
+  { icon: <ShieldCheck />, title: lang === 'ar' ? "ضمان على قطع الغيار والخدمات" : lang === 'en' ? "Warranty on Parts & Services" : "Garantia em peças e serviços" },
+  { icon: <Medal />, title: lang === 'ar' ? "محترفون ذوو خبرة" : lang === 'en' ? "Experienced Professionals" : "Profissionais experientes" },
+  { icon: <Wrench />, title: lang === 'ar' ? "متخصصون في ناقل الحركة الأوتوماتيكي" : lang === 'en' ? "Automatic Transmission Specialists" : "Especialistas em câmbio automático" },
+  { icon: <Clock />, title: lang === 'ar' ? "التسليم في الوقت المحدد" : lang === 'en' ? "On-Time Delivery" : "Entrega no prazo" },
+  { icon: <CreditCard />, title: lang === 'ar' ? "سعر عادل وتقسيط" : lang === 'en' ? "Fair Price & Installments" : "Preço justo e Parcelamento" }
 ];
 
 export default function Differentials() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   return (
     <section className="py-24 bg-dark-100 relative border-t border-white/5">
       <div className="container mx-auto px-4 md:px-8 max-w-7xl">
@@ -38,7 +38,7 @@ export default function Differentials() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {differentials.map((item, index) => (
+          {getDifferentials(language as any).map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.9 }}

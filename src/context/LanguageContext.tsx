@@ -16,6 +16,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     const savedLang = localStorage.getItem("alnajar_lang") as Language;
     if (savedLang && ["pt", "en", "ar"].includes(savedLang)) {
@@ -45,11 +46,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const t = translations[language] || translations.pt;
 
-  if (!mounted) {
-    // Avoid hydration mismatch by rendering default or nothing
-    return <>{children}</>;
-  }
-
+  // We must provide the context during SSR as well, otherwise children 
+  // that use the hook will crash.
   return (
     <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
       {children}

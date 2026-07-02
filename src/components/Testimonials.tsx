@@ -38,8 +38,6 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
   return (
     <section id="depoimentos" className="py-24 bg-dark-100 relative overflow-hidden border-t border-white/5">
       {/* Background decoration */}
@@ -51,19 +49,18 @@ export default function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              O que dizem <span className="text-brand">Nossos Clientes</span>
+              O que dizem <span className="text-brand">nossos clientes</span>
             </h2>
-            <div className="w-20 h-1.5 bg-brand mx-auto mb-6 rounded-full"></div>
             <p className="text-gray-400 text-lg">
-              A confiança e satisfação de quem já vivenciou o padrão Alnajar de qualidade.
+              A satisfação de quem já confiou o carro à Mecânica Alnajar.
             </p>
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((item, index) => (
             <motion.div
               key={index}
@@ -82,7 +79,7 @@ export default function Testimonials() {
               </div>
               
               <p className="text-gray-300 italic mb-6 relative z-10 line-clamp-4 hover:line-clamp-none transition-all">
-                "{item.text}"
+                &quot;{item.text}&quot;
               </p>
               
               <div className="font-bold text-white text-lg">

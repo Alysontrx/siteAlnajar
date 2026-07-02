@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Wrench } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLanguage } from "@/context/LanguageContext";

@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock, Wrench } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
   return (

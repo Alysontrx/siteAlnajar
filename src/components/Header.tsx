@@ -3,10 +3,13 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Wrench } from "lucide-react";
 import { motion } from "framer-motion";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,30 +37,34 @@ export default function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-          <a href="#sobre" className="text-gray-300 hover:text-white transition-colors">Sobre</a>
-          <a href="#especialidades" className="text-gray-300 hover:text-white transition-colors">Especialidades</a>
-          <a href="#como-funciona" className="text-gray-300 hover:text-white transition-colors">Como Funciona</a>
-          <a href="#depoimentos" className="text-gray-300 hover:text-white transition-colors">Depoimentos</a>
+          <a href="#sobre" className="text-gray-300 hover:text-white transition-colors">{t.header.about}</a>
+          <a href="#especialidades" className="text-gray-300 hover:text-white transition-colors">{t.header.specialties}</a>
+          <a href="#como-funciona" className="text-gray-300 hover:text-white transition-colors">{t.header.howItWorks}</a>
+          <a href="#depoimentos" className="text-gray-300 hover:text-white transition-colors">{t.header.testimonials}</a>
         </nav>
 
-        <div className="hidden md:flex">
+        <div className="hidden md:flex items-center gap-4">
+          <LanguageSwitcher />
           <a
             href="https://wa.me/5511965846438?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento."
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-brand hover:bg-brand-hover text-white px-6 py-2.5 rounded-sm font-semibold transition-colors duration-300 text-sm tracking-wide"
+            className="bg-brand hover:bg-brand-hover text-white px-6 py-2.5 rounded-sm font-semibold transition-colors duration-300 text-sm tracking-wide shadow-[0_0_15px_rgba(234,88,12,0.4)]"
           >
-            Falar no WhatsApp
+            {t.header.whatsapp}
           </a>
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X /> : <Menu />}
-        </button>
+        {/* Mobile Toggle & Language */}
+        <div className="md:hidden flex items-center gap-4">
+          <LanguageSwitcher />
+          <button
+            className="text-white"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -67,15 +74,15 @@ export default function Header() {
           animate={{ opacity: 1, y: 0 }}
           className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-xl border-b border-white/10 p-4 flex flex-col gap-4"
         >
-          <a href="#sobre" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-300 hover:text-white p-2">Sobre</a>
-          <a href="#especialidades" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-300 hover:text-white p-2">Especialidades</a>
-          <a href="#como-funciona" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-300 hover:text-white p-2">Como Funciona</a>
-          <a href="#depoimentos" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-300 hover:text-white p-2">Depoimentos</a>
+          <a href="#sobre" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-300 hover:text-white p-2">{t.header.about}</a>
+          <a href="#especialidades" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-300 hover:text-white p-2">{t.header.specialties}</a>
+          <a href="#como-funciona" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-300 hover:text-white p-2">{t.header.howItWorks}</a>
+          <a href="#depoimentos" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-300 hover:text-white p-2">{t.header.testimonials}</a>
           <a
             href="https://wa.me/5511965846438"
             className="bg-brand text-center text-white px-4 py-3 rounded-sm font-semibold mt-2"
           >
-            Falar no WhatsApp
+            {t.header.whatsapp}
           </a>
         </motion.div>
       )}

@@ -23,7 +23,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
         isScrolled
-          ? "bg-black/90 backdrop-blur-md border-white/10 py-3"
+          ? "bg-black/95 border-white/10 py-3"
           : "bg-transparent border-transparent py-5"
       }`}
     >
@@ -72,7 +72,7 @@ export default function Header() {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-xl border-b border-white/10 p-4 flex flex-col gap-4"
+          className="md:hidden absolute top-full left-0 right-0 bg-black/95 border-b border-white/10 p-4 flex flex-col gap-4"
         >
           <a href="#sobre" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-300 hover:text-white p-2">{t.header.about}</a>
           <a href="#especialidades" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-300 hover:text-white p-2">{t.header.specialties}</a>

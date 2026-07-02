@@ -9,12 +9,10 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-32 pb-16 overflow-hidden bg-black">
-      {/* Background Graphic Premium */}
-      <div className="absolute inset-0 z-0">
-        {/* Golden/Orange glow for Arab/Premium feel */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand/20 rounded-full blur-[150px] -translate-y-1/3 translate-x-1/3"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-amber-600/10 rounded-full blur-[120px] translate-y-1/4 -translate-x-1/4"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-black/80 to-black"></div>
+      {/* Background Graphic Premium - Simplified for performance */}
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-black via-black to-black">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-brand/10 to-transparent rounded-full -translate-y-1/3 translate-x-1/3"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-amber-600/10 to-transparent rounded-full translate-y-1/4 -translate-x-1/4"></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10 grid lg:grid-cols-2 gap-12">
@@ -51,7 +49,7 @@ export default function Hero() {
                 href="https://maps.google.com/?q=Rua+Miguel+Arco+e+Flexa,+246+-+Vila+Euclides,+São+Bernardo+do+Campo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/5 hover:bg-white/10 text-white border border-white/20 px-8 py-4 rounded-md font-semibold text-center text-lg transition-all duration-300 backdrop-blur-sm hover:border-white/40"
+                className="bg-white/5 hover:bg-white/10 text-white border border-white/20 px-8 py-4 rounded-md font-semibold text-center text-lg transition-all duration-300 hover:border-white/40"
               >
                 {t.hero.locationBtn}
               </a>

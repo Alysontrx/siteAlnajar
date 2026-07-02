@@ -13,8 +13,8 @@ export default function CTA() {
       <div className="absolute inset-0 bg-black/50"></div>
       <div className="absolute inset-0 bg-[radial-gradient(#1a1a1a_1px,transparent_1px)] [background-size:20px_20px] opacity-30"></div>
       
-      {/* Premium Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/20 rounded-full blur-[120px] pointer-events-none"></div>
+      {/* Premium Glow - Simplified */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-500/10 to-transparent rounded-full pointer-events-none"></div>
 
       <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10 text-center">
         <motion.div
@@ -22,7 +22,7 @@ export default function CTA() {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="bg-black/40 backdrop-blur-md border border-white/10 p-8 md:p-16 rounded-3xl shadow-2xl"
+          className="bg-black/90 border border-white/10 p-8 md:p-16 rounded-3xl shadow-2xl"
         >
           <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">
             {t.cta.title1} <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-amber-400">{t.cta.titleHighlight}</span>

@@ -6,7 +6,6 @@ import Differentials from "@/components/Differentials";
 import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
 import Stats from "@/components/Stats";
-import Gallery from "@/components/Gallery";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -22,7 +21,6 @@ export default function Home() {
       <HowItWorks />
       <Testimonials />
       <Stats />
-      <Gallery />
       <FAQ />
       <CTA />
       <Footer />

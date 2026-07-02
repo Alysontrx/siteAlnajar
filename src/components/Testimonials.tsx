@@ -41,7 +41,7 @@ export default function Testimonials() {
   return (
     <section id="depoimentos" className="py-24 bg-dark-100 relative overflow-hidden border-t border-white/5">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 bg-brand/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand/5 to-transparent rounded-full pointer-events-none"></div>
       
       <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">

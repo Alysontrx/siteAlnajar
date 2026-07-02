@@ -15,7 +15,7 @@ export default function About() {
   return (
     <section id="sobre" className="py-24 bg-dark-100 relative overflow-hidden">
       {/* Background subtleties */}
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-600 to-transparent blur-3xl pointer-events-none"></div>
+      <div className="absolute inset-0 opacity-5 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-600 to-transparent pointer-events-none"></div>
 
       <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -88,7 +88,7 @@ export default function About() {
               </div>
 
               {/* Floating Badge */}
-              <div className="absolute bottom-6 left-6 bg-black/80 backdrop-blur-md border border-white/10 p-4 rounded-xl flex items-center gap-4 max-w-[300px] shadow-xl transform group-hover:-translate-y-2 transition-transform duration-500">
+              <div className="absolute bottom-6 left-6 bg-black/95 border border-white/10 p-4 rounded-xl flex items-center gap-4 max-w-[300px] shadow-xl transform group-hover:-translate-y-2 transition-transform duration-500">
                 <div className="bg-brand/20 p-3 rounded-full border border-brand/50 shadow-[0_0_10px_rgba(234,88,12,0.4)]">
                   <PlayCircle className="text-brand w-6 h-6" />
                 </div>

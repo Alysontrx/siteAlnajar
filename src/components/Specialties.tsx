@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Settings, ShieldAlert, Activity, Droplet, Wrench, Zap, Disc, Gauge } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const specialties = [
   {
@@ -47,6 +48,7 @@ const specialties = [
 ];
 
 export default function Specialties() {
+  const { t, language } = useLanguage();
   return (
     <section id="especialidades" className="py-24 bg-black relative">
       <div className="container mx-auto px-4 md:px-8 max-w-7xl">
@@ -58,11 +60,11 @@ export default function Specialties() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Nossas <span className="text-brand">Especialidades</span>
+              {t.specialties.title1} <span className="text-brand">{t.specialties.titleHighlight}</span>
             </h2>
             <div className="w-20 h-1.5 bg-brand mx-auto mb-6 rounded-full"></div>
             <p className="text-gray-400 text-lg">
-              De diagnósticos complexos de eletrônica embarcada à retífica de motores e câmbios automáticos. Nossa equipe resolve qualquer desafio.
+              {t.specialties.desc}
             </p>
           </motion.div>
         </div>

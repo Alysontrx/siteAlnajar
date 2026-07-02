@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const testimonials = [
   {
@@ -38,6 +39,7 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+  const { t } = useLanguage();
   return (
     <section id="depoimentos" className="py-24 bg-dark-100 relative overflow-hidden border-t border-white/5">
       {/* Background decoration */}
@@ -52,10 +54,10 @@ export default function Testimonials() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              O que dizem <span className="text-brand">nossos clientes</span>
+              {t.testimonials.title1} <span className="text-brand">{t.testimonials.titleHighlight}</span>
             </h2>
             <p className="text-gray-400 text-lg">
-              A satisfação de quem já confiou o carro à Mecânica Alnajar.
+              {t.testimonials.desc}
             </p>
           </motion.div>
         </div>
@@ -85,7 +87,7 @@ export default function Testimonials() {
               <div className="font-bold text-white text-lg">
                 {item.name}
               </div>
-              <div className="text-brand text-sm">Cliente Alnajar</div>
+              <div className="text-brand text-sm">{t.testimonials.customer}</div>
             </motion.div>
           ))}
         </div>

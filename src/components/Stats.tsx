@@ -48,7 +48,10 @@ const StatItem = ({ end, label, suffix = "", prefix = "", icon }: { end: number,
   );
 };
 
+import { useLanguage } from "@/context/LanguageContext";
+
 export default function Stats() {
+  const { t } = useLanguage();
   return (
     <section className="py-20 bg-brand relative overflow-hidden">
       {/* Dark overlay pattern */}
@@ -62,10 +65,10 @@ export default function Stats() {
           transition={{ duration: 0.8 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x-0 md:divide-x divide-y md:divide-y-0 divide-white/10"
         >
-          <StatItem end={500} prefix="+" label="Clientes Satisfeitos" icon={<Users className="w-10 h-10" />} />
-          <StatItem end={4.9} suffix="/5" label="Avaliação no Google" icon={<Star className="w-10 h-10" />} />
+          <StatItem end={500} prefix="+" label={t.stats.clients} icon={<Users className="w-10 h-10" />} />
+          <StatItem end={4.9} suffix="/5" label={t.stats.rating} icon={<Star className="w-10 h-10" />} />
           <StatItem end={100} suffix="%" label="Transparência" icon={<ShieldCheck className="w-10 h-10" />} />
-          <StatItem end={30} prefix="+" label="Anos de Experiência" icon={<Clock className="w-10 h-10" />} />
+          <StatItem end={30} prefix="+" label={t.stats.years} icon={<Clock className="w-10 h-10" />} />
         </motion.div>
       </div>
     </section>

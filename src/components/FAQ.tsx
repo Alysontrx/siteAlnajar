@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const faqs = [
   {
@@ -37,6 +38,7 @@ const faqs = [
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const { t } = useLanguage();
 
   return (
     <section className="py-24 bg-dark-100 relative border-t border-white/5">
@@ -49,7 +51,7 @@ export default function FAQ() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Perguntas <span className="text-brand">Frequentes</span>
+              {t.faq.title1} <span className="text-brand">{t.faq.titleHighlight}</span>
             </h2>
             <div className="w-20 h-1.5 bg-brand mx-auto mb-6 rounded-full"></div>
           </motion.div>

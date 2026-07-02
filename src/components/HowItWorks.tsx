@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CalendarCheck, Search, FileText, Wrench, Key } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const steps = [
   {
@@ -32,6 +33,7 @@ const steps = [
 ];
 
 export default function HowItWorks() {
+  const { t } = useLanguage();
   return (
     <section id="como-funciona" className="py-24 bg-black relative">
       <div className="container mx-auto px-4 md:px-8 max-w-7xl">
@@ -43,7 +45,7 @@ export default function HowItWorks() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Como <span className="text-brand">Funciona</span>
+              {t.howItWorks.title1} <span className="text-brand">{t.howItWorks.titleHighlight}</span>
             </h2>
             <div className="w-20 h-1.5 bg-brand mx-auto mb-6 rounded-full"></div>
           </motion.div>

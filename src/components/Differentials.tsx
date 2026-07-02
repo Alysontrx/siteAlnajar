@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle2, Video, ShieldCheck, Wrench, Clock, CreditCard, ThumbsUp, Medal } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const differentials = [
   { icon: <CheckCircle2 />, title: "Diagnóstico preciso" },
@@ -15,6 +16,7 @@ const differentials = [
 ];
 
 export default function Differentials() {
+  const { t } = useLanguage();
   return (
     <section className="py-24 bg-dark-100 relative border-t border-white/5">
       <div className="container mx-auto px-4 md:px-8 max-w-7xl">
@@ -26,11 +28,11 @@ export default function Differentials() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Nossos <span className="text-brand">Diferenciais</span>
+              {t.differentials.title1} <span className="text-brand">{t.differentials.titleHighlight}</span>
             </h2>
             <div className="w-20 h-1.5 bg-brand mx-auto mb-6 rounded-full"></div>
             <p className="text-gray-400 text-lg">
-              Por que somos a oficina referência em São Bernardo do Campo?
+              {t.differentials.desc}
             </p>
           </motion.div>
         </div>

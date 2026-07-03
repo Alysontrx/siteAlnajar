@@ -7,18 +7,18 @@ import { useLanguage } from "@/context/LanguageContext";
 const getSpecialties = (lang: 'pt' | 'en' | 'ar') => [
   {
     icon: <Settings className="w-8 h-8" />,
-    title: lang === 'ar' ? "ناقل الحركة الأوتوماتيكي" : lang === 'en' ? "Automatic Transmission" : "Câmbio Automático",
-    desc: lang === 'ar' ? "تشخيص وإصلاح متخصص في نواقل الحركة الأوتوماتيكية لضمان تبديل سلس وعمر أطول." : lang === 'en' ? "Specialized diagnosis and repair for automatic transmissions, ensuring smooth shifts and durability." : "Diagnóstico e reparo especializado em transmissões automáticas, garantindo trocas suaves e maior durabilidade."
-  },
-  {
-    icon: <Activity className="w-8 h-8" />,
-    title: lang === 'ar' ? "ناقل الحركة PowerShift و CVT" : lang === 'en' ? "PowerShift & CVT Transmission" : "Câmbio PowerShift & CVT",
-    desc: lang === 'ar' ? "متخصصون في صيانة وتصحيح المشاكل المزمنة في أنظمة PowerShift و CVT." : lang === 'en' ? "Experts in maintenance and correction of chronic issues in PowerShift and CVT systems." : "Especialistas na manutenção e correção de problemas crônicos em câmbios PowerShift e sistemas CVT."
+    title: lang === 'ar' ? "جميع أنواع نواقل الحركة" : lang === 'en' ? "All Transmission Types" : "Câmbios Automáticos e Automatizados",
+    desc: lang === 'ar' ? "متخصصون في جميع أنواع نواقل الحركة: DSG، Easytronic، PowerShift، CVT والمزيد." : lang === 'en' ? "Experts in all transmission types: DSG, Easytronic, PowerShift, CVT, and more." : "Especialistas em todos os tipos de câmbio: Automático convencional, DSG, Easytronic, I-Motion, PowerShift e CVT."
   },
   {
     icon: <Wrench className="w-8 h-8" />,
     title: lang === 'ar' ? "الميكانيكا العامة والمحرك" : lang === 'en' ? "General Mechanics & Engine" : "Mecânica Geral & Motor",
     desc: lang === 'ar' ? "إصلاح شامل وصيانة متقدمة للمحركات باستخدام قطع غيار أصلية." : lang === 'en' ? "Complete overhaul and advanced repairs for engines with original parts." : "Retífica, revisão completa e reparos avançados de motores nacionais e importados com peças originais."
+  },
+  {
+    icon: <Activity className="w-8 h-8" />,
+    title: lang === 'ar' ? "الميكانيكا الوقائية" : lang === 'en' ? "Preventive Mechanics" : "Mecânica Preventiva e Corretiva",
+    desc: lang === 'ar' ? "صيانة دقيقة لتجنب الأعطال غير المتوقعة." : lang === 'en' ? "Precise maintenance to avoid unexpected breakdowns." : "Cuidamos de tudo para o seu veículo não te deixar na mão, com revisões precisas e completas."
   },
   {
     icon: <ShieldAlert className="w-8 h-8" />,

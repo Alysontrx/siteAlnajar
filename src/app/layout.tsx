@@ -9,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Mecânica Alnajar | Especialistas em Câmbio Automático e Mecânica Geral",
-  description: "Oficina especializada em câmbio automático, PowerShift, CVT e mecânica geral em São Bernardo do Campo. Diagnóstico preciso, transparência e garantia.",
-  keywords: "Oficina Mecânica em São Bernardo do Campo, Oficina Mecânica ABC, Câmbio Automático, Oficina PowerShift, Oficina CVT, Mecânico em São Bernardo, Oficina especializada, Mecânica Geral",
+  title: "Mecânica Alnajar | Especialistas em Câmbios (Manuais e Automáticos) e Mecânica Geral",
+  description: "Oficina especializada em câmbios (manuais e automáticos), PowerShift, CVT e mecânica geral em São Bernardo do Campo. Diagnóstico preciso, transparência e garantia.",
+  keywords: "Oficina Mecânica em São Bernardo do Campo, Oficina Mecânica ABC, Câmbio Automático, Câmbio Manual, Oficina PowerShift, Oficina CVT, Mecânico em São Bernardo, Oficina especializada, Mecânica Geral",
 };
 
 export default function RootLayout({

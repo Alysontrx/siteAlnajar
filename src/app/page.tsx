@@ -9,6 +9,7 @@ import Stats from "@/components/Stats";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import InstagramPopup from "@/components/InstagramPopup";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <FAQ />
       <CTA />
       <Footer />
+      <InstagramPopup />
     </main>
   );
 }

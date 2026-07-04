@@ -7,8 +7,8 @@ import { useLanguage } from "@/context/LanguageContext";
 
 const getFaqs = (lang: 'pt' | 'en' | 'ar') => [
   {
-    question: lang === 'ar' ? "هل تعملون مع نواقل الحركة الأوتوماتيكية؟" : lang === 'en' ? "Do you work with automatic transmissions?" : "Vocês trabalham com câmbio automático?",
-    answer: lang === 'ar' ? "نعم، نحن متخصصون في التشخيص والإصلاح والصيانة الوقائية (تغيير السوائل) لنواقل الحركة الأوتوماتيكية من جميع الماركات." : lang === 'en' ? "Yes, we specialize in diagnostics, repair, and preventive maintenance (fluid change) for automatic transmissions of all brands." : "Sim, somos especialistas em diagnóstico, reparo e manutenção preventiva (troca de fluido) de câmbios automáticos de todas as marcas."
+    question: lang === 'ar' ? "هل تعملون مع جميع أنواع نواقل الحركة؟" : lang === 'en' ? "Do you work with manual and automatic transmissions?" : "Vocês trabalham com câmbio manual e automático?",
+    answer: lang === 'ar' ? "نعم، نحن متخصصون في التشخيص والإصلاح والصيانة الوقائية لنواقل الحركة العادية والأوتوماتيكية من جميع الماركات." : lang === 'en' ? "Yes, we specialize in diagnostics, repair, and preventive maintenance for manual and automatic transmissions of all brands." : "Sim, somos especialistas em diagnóstico, reparo e manutenção preventiva de câmbios manuais e automáticos de todas as marcas."
   },
   {
     question: lang === 'ar' ? "هل تقومون بصيانة PowerShift؟" : lang === 'en' ? "Do you repair PowerShift transmissions?" : "Vocês fazem PowerShift?",

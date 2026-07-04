@@ -57,10 +57,27 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-base md:text-xl text-gray-300 mb-10 max-w-xl leading-relaxed"
+              className="text-base md:text-xl text-gray-300 mb-8 max-w-xl leading-relaxed"
             >
               {t.hero.description}
             </motion.p>
+            
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+              className="flex flex-col gap-3 mb-10 text-gray-100 font-semibold text-lg md:text-xl"
+            >
+              <div className="flex items-center gap-2 drop-shadow-md">
+                {t.hero.list1}
+              </div>
+              <div className="flex items-center gap-2 drop-shadow-md">
+                {t.hero.list2}
+              </div>
+              <div className="flex items-center gap-2 drop-shadow-md">
+                {t.hero.list3}
+              </div>
+            </motion.div>
 
             <motion.div 
               initial={{ opacity: 0, y: 20 }}

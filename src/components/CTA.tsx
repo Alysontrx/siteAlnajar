@@ -50,6 +50,25 @@ export default function CTA() {
               <MessageCircle className="w-7 h-7 animate-pulse group-hover/btn:text-brand transition-colors" />
               <span className="relative z-10">{t.cta.btn}</span>
             </a>
+
+            <div className="mt-12 pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+              <p className="text-gray-300 font-medium text-lg">
+                {t.header?.whatsapp ? (t.header.whatsapp.includes("WhatsApp") ? "Nós estamos no Instagram! Nos acompanhe" : "We are on Instagram! Follow us") : "Nós estamos no Instagram! Nos acompanhe"} 
+              </p>
+              <a 
+                href="https://www.instagram.com/mecanica_alnajar/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-white hover:text-brand bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition-all duration-300"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <span className="font-bold">@mecanica_alnajar</span>
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>

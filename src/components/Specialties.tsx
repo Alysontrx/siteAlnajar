@@ -7,8 +7,8 @@ import { useLanguage } from "@/context/LanguageContext";
 const getSpecialties = (lang: 'pt' | 'en' | 'ar') => [
   {
     icon: <Settings className="w-8 h-8" />,
-    title: lang === 'ar' ? "جميع أنواع نواقل الحركة" : lang === 'en' ? "All Transmission Types" : "Câmbios Automáticos e Automatizados",
-    desc: lang === 'ar' ? "متخصصون في جميع أنواع نواقل الحركة: DSG، Easytronic، PowerShift، CVT والمزيد." : lang === 'en' ? "Experts in all transmission types: DSG, Easytronic, PowerShift, CVT, and more." : "Especialistas em todos os tipos de câmbio: Automático convencional, DSG, Easytronic, I-Motion, PowerShift e CVT."
+    title: lang === 'ar' ? "جميع أنواع نواقل الحركة" : lang === 'en' ? "All Transmission Types" : "Câmbios Manuais e Automáticos",
+    desc: lang === 'ar' ? "متخصصون في جميع أنواع نواقل الحركة: العادية، DSG، Easytronic، PowerShift، CVT والمزيد." : lang === 'en' ? "Experts in all transmission types: Manual, DSG, Easytronic, PowerShift, CVT, and more." : "Especialistas em todos os tipos de câmbio: Manual, Automático convencional, DSG, Easytronic, I-Motion, PowerShift e CVT."
   },
   {
     icon: <Wrench className="w-8 h-8" />,
@@ -38,7 +38,7 @@ const getSpecialties = (lang: 'pt' | 'en' | 'ar') => [
   {
     icon: <Droplet className="w-8 h-8" />,
     title: lang === 'ar' ? "تغيير الزيت المتخصص" : lang === 'en' ? "Specialized Oil Change" : "Troca de Óleo Especializada",
-    desc: lang === 'ar' ? "استبدال سائل ناقل الحركة الأوتوماتيكي بالآلة وزيت المحرك بفلاتر عالية الجودة." : lang === 'en' ? "Automatic transmission fluid replacement by machine and engine oil with high-quality filters." : "Substituição do fluido de câmbio automático por máquina (diálise) e óleo de motor com filtros de alta qualidade."
+    desc: lang === 'ar' ? "استبدال سائل ناقل الحركة بالآلة وزيت المحرك بفلاتر عالية الجودة." : lang === 'en' ? "Transmission fluid replacement by machine and engine oil with high-quality filters." : "Substituição do fluido de câmbio por máquina (diálise) e óleo de motor com filtros de alta qualidade."
   },
   {
     icon: <Disc className="w-8 h-8" />,

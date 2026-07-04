@@ -2,6 +2,14 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+
+const InstagramIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+);
 import { motion } from "framer-motion";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLanguage } from "@/context/LanguageContext";
@@ -44,6 +52,15 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
+          <a
+            href="https://www.instagram.com/mecanica_alnajar/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-brand transition-colors flex items-center justify-center w-8 h-8 rounded-full hover:bg-white/5"
+            title="Siga no Instagram"
+          >
+            <InstagramIcon />
+          </a>
           <LanguageSwitcher />
           <a
             href="https://wa.me/5511965846438?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento."
@@ -79,6 +96,14 @@ export default function Header() {
           <a href="#especialidades" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-300 hover:text-white p-2">{t.header.specialties}</a>
           <a href="#como-funciona" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-300 hover:text-white p-2">{t.header.howItWorks}</a>
           <a href="#depoimentos" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-300 hover:text-white p-2">{t.header.testimonials}</a>
+          <a 
+            href="https://www.instagram.com/mecanica_alnajar/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="flex items-center gap-3 text-gray-300 hover:text-brand p-2"
+          >
+            <InstagramIcon /> Instagram
+          </a>
           <a
             href="https://wa.me/5511965846438"
             className="bg-brand text-center text-white px-4 py-3 rounded-sm font-semibold mt-2"

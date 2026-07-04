@@ -13,7 +13,7 @@ const getTestimonials = (lang: 'pt' | 'en' | 'ar') => [
   },
   {
     name: "Rafael",
-    text: lang === 'ar' ? "أفضل ورشة ميكانيكا في ساو برناردو دو كامبو. متخصصون في نواقل الحركة الأوتوماتيكية و PowerShift و CVT. خدمة صادقة وتشخيص دقيق وتسليم في الموعد." : lang === 'en' ? "Best auto repair shop in São Bernardo do Campo. Specialized in automatic transmission, PowerShift and CVT. Honest service, precise diagnosis and on-time delivery." : "Melhor oficina mecânica em São Bernardo do Campo. Especializada em câmbio automático, PowerShift e CVT. Atendimento honesto, diagnóstico preciso e entrega no prazo.",
+    text: lang === 'ar' ? "أفضل ورشة ميكانيكا في ساو برناردو دو كامبو. متخصصون في نواقل الحركة العادية والأوتوماتيكية و PowerShift و CVT. خدمة صادقة وتشخيص دقيق وتسليم في الموعد." : lang === 'en' ? "Best auto repair shop in São Bernardo do Campo. Specialized in manual & automatic transmission, PowerShift and CVT. Honest service, precise diagnosis and on-time delivery." : "Melhor oficina mecânica em São Bernardo do Campo. Especializada em câmbio manual e automático, PowerShift e CVT. Atendimento honesto, diagnóstico preciso e entrega no prazo.",
     rating: 5
   },
   {
@@ -28,7 +28,7 @@ const getTestimonials = (lang: 'pt' | 'en' | 'ar') => [
   },
   {
     name: "Omar Awad",
-    text: lang === 'ar' ? "قمت بإصلاح ناقل الحركة الأوتوماتيكي، وتمكنت من الدفع على 12 قسطاً بدون فوائد، والسيارة الآن مثالية." : lang === 'en' ? "I fixed my automatic transmission, was able to pay in 12 interest-free installments, and the car is perfect." : "Fiz o câmbio automático, consegui parcelar em 12x sem juros e o carro ficou perfeito.",
+    text: lang === 'ar' ? "قمت بإصلاح ناقل الحركة في سيارتي، وتمكنت من الدفع على 12 قسطاً بدون فوائد، والسيارة الآن مثالية." : lang === 'en' ? "I fixed my transmission, was able to pay in 12 interest-free installments, and the car is perfect." : "Fiz o câmbio do meu carro, consegui parcelar em 12x sem juros e ficou perfeito.",
     rating: 5
   },
   {

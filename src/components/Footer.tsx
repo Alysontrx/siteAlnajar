@@ -14,10 +14,10 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-gray-400 leading-relaxed mb-6">
-              Oficina mecânica premium especializada em Câmbio Automático, PowerShift, CVT e Mecânica Geral.
+              Oficina mecânica premium especializada em Câmbios Manuais e Automáticos, PowerShift, CVT e Mecânica Geral.
             </p>
             <div className="flex items-center gap-4">
-              <a href="https://instagram.com/mecanicaalnajar" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-dark-200 rounded-full flex items-center justify-center text-white hover:bg-brand transition-colors">
+              <a href="https://www.instagram.com/mecanica_alnajar/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-dark-200 rounded-full flex items-center justify-center text-white hover:bg-brand transition-colors" title="Instagram">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>

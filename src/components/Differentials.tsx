@@ -10,7 +10,7 @@ const getDifferentials = (lang: 'pt' | 'en' | 'ar') => [
   { icon: <Video />, title: lang === 'ar' ? "فيديوهات توضح الخدمة" : lang === 'en' ? "Videos Showing the Service" : "Vídeos mostrando o serviço" },
   { icon: <ShieldCheck />, title: lang === 'ar' ? "ضمان على قطع الغيار والخدمات" : lang === 'en' ? "Warranty on Parts & Services" : "Garantia em peças e serviços" },
   { icon: <Medal />, title: lang === 'ar' ? "محترفون ذوو خبرة" : lang === 'en' ? "Experienced Professionals" : "Profissionais experientes" },
-  { icon: <Wrench />, title: lang === 'ar' ? "متخصصون في ناقل الحركة الأوتوماتيكي" : lang === 'en' ? "Automatic Transmission Specialists" : "Especialistas em câmbio automático" },
+  { icon: <Wrench />, title: lang === 'ar' ? "متخصصون في ناقل الحركة" : lang === 'en' ? "Transmission Specialists" : "Especialistas em Câmbios (Manuais e Automáticos)" },
   { icon: <Clock />, title: lang === 'ar' ? "التسليم في الوقت المحدد" : lang === 'en' ? "On-Time Delivery" : "Entrega no prazo" },
   { icon: <CreditCard />, title: lang === 'ar' ? "سعر عادل وتقسيط" : lang === 'en' ? "Fair Price & Installments" : "Preço justo e Parcelamento" }
 ];

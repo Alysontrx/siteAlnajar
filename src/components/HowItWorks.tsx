@@ -51,28 +51,40 @@ export default function HowItWorks() {
           </motion.div>
         </div>
 
-        <div className="relative">
-          {/* Connecting Line */}
-          <div className="hidden lg:block absolute top-1/2 left-0 w-full h-1 bg-dark-200 -translate-y-1/2 z-0"></div>
+        <div className="relative mt-20">
+          {/* Connecting Line - Now with gradient and animation */}
+          <div className="hidden lg:block absolute top-10 left-[5%] w-[90%] h-1 bg-dark-200 -translate-y-1/2 z-0 rounded-full overflow-hidden">
+            <motion.div 
+              initial={{ x: '-100%' }}
+              whileInView={{ x: '100%' }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              className="w-full h-full bg-gradient-to-r from-transparent via-brand to-transparent opacity-50"
+            />
+          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-4 relative z-10">
             {getSteps(language as any).map((step, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.15 }}
-                className="flex flex-col items-center text-center bg-dark-100 lg:bg-transparent p-6 lg:p-0 rounded-xl lg:rounded-none border border-white/5 lg:border-none"
+                className="group flex flex-col items-center text-center p-6 rounded-2xl glass hover:bg-dark-200/50 transition-all duration-300 border border-white/5 hover:border-brand/40 shadow-lg hover:-translate-y-2 relative"
               >
-                <div className="w-20 h-20 bg-black border-4 border-dark-200 rounded-full flex items-center justify-center text-brand mb-6 shadow-xl relative">
+                {/* Step Connector Drop for Mobile */}
+                {index !== 4 && (
+                  <div className="lg:hidden absolute -bottom-8 left-1/2 -translate-x-1/2 w-0.5 h-6 bg-gradient-to-b from-brand/50 to-transparent rounded-full" />
+                )}
+
+                <div className="w-20 h-20 bg-dark-200 border border-white/10 rounded-2xl flex items-center justify-center text-brand mb-6 shadow-xl relative group-hover:scale-110 group-hover:bg-brand group-hover:text-white transition-all duration-500 rotate-3 group-hover:rotate-0">
                   {step.icon}
-                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-brand rounded-full flex items-center justify-center text-white font-bold text-sm">
+                  <div className="absolute -top-3 -right-3 w-8 h-8 bg-brand rounded-full flex items-center justify-center text-white font-black text-sm shadow-[0_0_15px_rgba(234,88,12,0.6)] border-2 border-black group-hover:scale-110 transition-transform">
                     {index + 1}
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{step.desc}</p>
+                <h3 className="text-lg font-bold text-white mb-3 group-hover:text-brand transition-colors">{step.title.replace(/^\d+\.\s*/, '')}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">{step.desc}</p>
               </motion.div>
             ))}
           </div>

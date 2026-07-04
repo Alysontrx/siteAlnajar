@@ -69,27 +69,43 @@ export default function Specialties() {
           </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {getSpecialties(language).map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-dark-100 border border-white/5 hover:border-brand/50 rounded-lg p-8 group transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(220,38,38,0.1)]"
-            >
-              <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center mb-6 text-brand group-hover:scale-110 transition-transform duration-300">
-                {item.icon}
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-white group-hover:text-brand transition-colors">
-                {item.title}
-              </h3>
-              <p className="text-gray-400 leading-relaxed text-sm">
-                {item.desc}
-              </p>
-            </motion.div>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px]">
+          {getSpecialties(language).map((item, index) => {
+            // Lógica Bento Box: alguns cards ocupam mais espaço
+            const isLarge = index === 0 || index === 3;
+            const isTall = index === 5;
+            
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className={`group relative overflow-hidden bg-dark-200/50 glass hover:bg-dark-200 transition-all duration-500 rounded-2xl p-8 flex flex-col justify-between border border-white/5 hover:border-brand/40 shadow-lg hover:shadow-[0_0_40px_rgba(234,88,12,0.15)] ${
+                  isLarge ? "md:col-span-2" : ""
+                } ${isTall ? "md:row-span-2" : ""}`}
+              >
+                {/* Efeito Hover Glow no card (segue o mouse visualmente via CSS abstrato) */}
+                <div className="absolute -inset-full bg-gradient-to-br from-brand/20 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-[spin_10s_linear_infinite] transition-opacity duration-700 pointer-events-none blur-3xl rounded-full"></div>
+
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className={`w-14 h-14 rounded-xl glass border border-white/10 flex items-center justify-center mb-6 text-brand group-hover:scale-110 group-hover:bg-brand group-hover:text-white transition-all duration-500 shadow-md`}>
+                    {item.icon}
+                  </div>
+                  
+                  <div className="mt-auto">
+                    <h3 className={`font-bold mb-2 text-white group-hover:text-brand transition-colors duration-300 ${isLarge ? 'text-2xl' : 'text-xl'}`}>
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-400 leading-relaxed text-sm group-hover:text-gray-300 transition-colors">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

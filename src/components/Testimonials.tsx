@@ -62,34 +62,55 @@ export default function Testimonials() {
           </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {getTestimonials(language as any).map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-black border border-white/10 p-8 rounded-xl relative hover:border-brand/40 transition-colors"
-            >
-              <Quote className="text-brand/20 w-16 h-16 absolute top-4 right-4" />
-              
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(item.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-yellow-500 text-yellow-500" />
-                ))}
+        <div className="relative mt-12 overflow-hidden -mx-4 md:-mx-8 px-4 md:px-8 py-10">
+          {/* Gradient Edges for smooth fading */}
+          <div className="absolute top-0 bottom-0 left-0 w-16 md:w-32 bg-gradient-to-r from-dark-100 to-transparent z-20 pointer-events-none"></div>
+          <div className="absolute top-0 bottom-0 right-0 w-16 md:w-32 bg-gradient-to-l from-dark-100 to-transparent z-20 pointer-events-none"></div>
+          
+          <motion.div 
+            className="flex gap-6 w-max"
+            animate={{ x: [0, -1000] }}
+            transition={{ 
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 30,
+                ease: "linear",
+              },
+            }}
+          >
+            {/* Double the array for infinite scroll effect */}
+            {[...getTestimonials(language as any), ...getTestimonials(language as any)].map((item, index) => (
+              <div
+                key={index}
+                className="w-[300px] md:w-[400px] flex-shrink-0 glass border border-white/5 p-8 rounded-2xl relative hover:border-brand/40 transition-colors shadow-xl group hover:-translate-y-2 duration-300"
+              >
+                <Quote className="text-brand/10 group-hover:text-brand/30 transition-colors w-20 h-20 absolute top-4 right-4" />
+                
+                <div className="flex items-center gap-1 mb-6">
+                  {[...Array(item.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-amber-500 text-amber-500 drop-shadow-[0_0_5px_rgba(245,158,11,0.6)]" />
+                  ))}
+                </div>
+                
+                <p className="text-gray-300 italic mb-8 relative z-10 text-sm md:text-base leading-relaxed">
+                  &quot;{item.text}&quot;
+                </p>
+                
+                <div className="flex items-center gap-4 mt-auto">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand to-amber-500 p-0.5 shadow-[0_0_15px_rgba(234,88,12,0.4)]">
+                    <div className="w-full h-full bg-black rounded-full flex items-center justify-center font-bold text-white">
+                      {item.name.charAt(0)}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="font-bold text-white text-lg">{item.name}</div>
+                    <div className="text-brand text-xs uppercase tracking-wider font-semibold">{t.testimonials.customer}</div>
+                  </div>
+                </div>
               </div>
-              
-              <p className="text-gray-300 italic mb-6 relative z-10 line-clamp-4 hover:line-clamp-none transition-all">
-                &quot;{item.text}&quot;
-              </p>
-              
-              <div className="font-bold text-white text-lg">
-                {item.name}
-              </div>
-              <div className="text-brand text-sm">{t.testimonials.customer}</div>
-            </motion.div>
-          ))}
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

@@ -57,39 +57,50 @@ export default function FAQ() {
           </motion.div>
         </div>
 
-        <div className="space-y-4">
-          {getFaqs(language as any).map((faq, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="bg-black border border-white/10 rounded-lg overflow-hidden"
-            >
-              <button
-                className="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-white/5 transition-colors"
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-              >
-                <span className="font-bold text-lg text-white">{faq.question}</span>
-                <ChevronDown 
-                  className={`text-brand w-6 h-6 transition-transform duration-300 ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`} 
-                />
-              </button>
-              
-              <div 
-                className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${
-                  openIndex === index ? "max-h-48 py-5 border-t border-white/5" : "max-h-0"
+        <div className="space-y-4 relative z-10">
+          {getFaqs(language as any).map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className={`border rounded-2xl overflow-hidden transition-all duration-300 ${
+                  isOpen 
+                    ? "glass border-brand/40 shadow-[0_0_30px_rgba(234,88,12,0.1)]" 
+                    : "bg-black border-white/10 hover:border-white/20"
                 }`}
               >
-                <p className="text-gray-300 leading-relaxed">
-                  {faq.answer}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+                <button
+                  className="w-full px-6 py-6 text-left flex justify-between items-center group"
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                >
+                  <span className={`font-bold text-lg transition-colors ${isOpen ? "text-brand" : "text-white group-hover:text-gray-200"}`}>
+                    {faq.question}
+                  </span>
+                  <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? "bg-brand text-white" : "bg-white/5 text-gray-400 group-hover:text-white"}`}>
+                    <ChevronDown 
+                      className={`w-5 h-5 transition-transform duration-500 ${
+                        isOpen ? "rotate-180" : ""
+                      }`} 
+                    />
+                  </div>
+                </button>
+                
+                <div 
+                  className={`px-6 overflow-hidden transition-all duration-500 ease-in-out ${
+                    isOpen ? "max-h-64 opacity-100 pb-6" : "max-h-0 opacity-0 pb-0"
+                  }`}
+                >
+                  <p className="text-gray-300 leading-relaxed border-t border-white/10 pt-4">
+                    {faq.answer}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

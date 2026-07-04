@@ -6,7 +6,7 @@ import { useLanguage } from "@/context/LanguageContext";
 
 // Helper for bold text
 const renderText = (text: string) => {
-  return { __html: text.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>') };
+  return { __html: text.replace(/\*\*(.*?)\*\*/g, '<strong class="text-gradient font-black drop-shadow-[0_0_8px_rgba(234,88,12,0.3)]">$1</strong>') };
 };
 
 export default function About() {
@@ -88,13 +88,13 @@ export default function About() {
               </div>
 
               {/* Floating Badge */}
-              <div className="absolute bottom-6 left-6 bg-black/95 border border-white/10 p-4 rounded-xl flex items-center gap-4 max-w-[300px] shadow-xl transform group-hover:-translate-y-2 transition-transform duration-500">
-                <div className="bg-brand/20 p-3 rounded-full border border-brand/50 shadow-[0_0_10px_rgba(234,88,12,0.4)]">
-                  <PlayCircle className="text-brand w-6 h-6" />
+              <div className="absolute bottom-6 left-6 glass p-4 rounded-2xl flex items-center gap-4 max-w-[300px] shadow-2xl transform group-hover:-translate-y-3 group-hover:scale-105 transition-all duration-500">
+                <div className="bg-brand/20 p-3 rounded-full border border-brand/50 shadow-[0_0_15px_rgba(234,88,12,0.4)]">
+                  <PlayCircle className="text-brand w-6 h-6 animate-pulse" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-white">{t.about.videoTitle}</p>
-                  <p className="text-xs text-gray-300 mt-0.5">{t.about.videoDesc}</p>
+                  <p className="text-sm font-bold text-white tracking-wide">{t.about.videoTitle}</p>
+                  <p className="text-xs text-gray-300 mt-1 leading-relaxed">{t.about.videoDesc}</p>
                 </div>
               </div>
             </div>
